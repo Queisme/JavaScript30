@@ -1,66 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Array Cardio 💪</title>
-  <link rel="icon" href="https://fav.farm/🔥" />
-</head>
-<body>
-  <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
-  <script>
-    // Get your shorts on - this is an array workout!
-    // ## Array Cardio Day 1
+  <head>
+    <meta charset="UTF-8" />
+    <title>Array Cardio 💪</title>
+    <link rel="icon" href="https://fav.farm/🔥" />
+  </head>
+  <body>
+    <p>
+      <em>Psst: Array Methods. Look into them. Learn 'em. Impliment 'em. <a href="https://medium.com/@mandeepkaur1/a-list-of-javascript-array-methods-145d09dd19a0">Like here</a></em> 💁
+      <ol>
+        <li>map() - creates a new array with the results of calling a provided function on every element in this array<br>
+        ex:<br> 
+            const arr = [1, 2, 3, 4, 5, 6];<br>
+            const mapped = arr.map(element => element + 30);<br>
+            console.log(mapped); // [31, 32, 33, 34, 35, 36]<br>
+        </li><br>
+        <li>filter() - creates a new array with only elements that passes the condition inside the provided function<br>
+        ex: <br>const arr = [1, 2, 3, 4, 5, 6];<br>
+            const filtered = arr.filter(element => element === 2 || element === 4);<br>
+            console.log(filtered); // [2, 4]<br>
+        </li><br>
+        <li>sort() - used to arrange/sort array’s elements either in ascending or descending order<br>
+        ex: <br>const arr = [1, 2, 3, 4, 5, 6];<br>
+            const alpha = ['f', 'a', 'c', 'v', 'z'];<br>
+            <br>
+            //sort in descending order<br>
+            descend = arr.sort((a, b) => a > b ? -1 : 1);
+            console.log(desend); // [6, 5, 4, 3, 2, 1]<br>
 
-    // Some data we can work with
+            <br>//sort in ascending order<br>
+            ascend = alpha.sort((a, b) => a > b ? 1 : -1);
+            console.log(ascend);// ['a', 'c', 'f', 'v', 'z']<br>
+        </li><br>
+        <li>forEach() - loops over array by executing a provided callback function for each element in an array<br>
+        ex: <br>const arr = [1, 2, 3];<br>
+            arr.forEach(element => {console.log(element);});<br>
+            // 1<br>
+            // 2<br>
+            // 3<br>
+        </li><br>
+        <li>concat() - merges two or more arrays and returns a new array, without changing the existing arrays<br>
+        ex: <br>const arr1 = ['a', 'b', 'c'];<br>
+            const arr2 = ['d', 'e', 'f'];<br>
+            <br>
+            console.log(arr1.concat(arr2)); // ['a', 'b', 'c', 'd', 'e', 'f']<br>
+            console.log(arr1); // ['a', 'b', 'c']<br>
+            console.log(arr2); // ['d', 'e', 'f']<br>
+        </li><br>
+        <li>every() - checks every element in the array that passes the condition, returning true or false as appropriate<br>
+        ex:<br>
+            const arr = [1, 2, 3, 4, 5, 6, 7];<br><br>
 
-    const inventors = [
-      { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
-      { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
-      { first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
-      { first: 'Marie', last: 'Curie', year: 1867, passed: 1934 },
-      { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 },
-      { first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
-      { first: 'Max', last: 'Planck', year: 1858, passed: 1947 },
-      { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 },
-      { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 },
-      { first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905 },
-      { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
-      { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
-    ];
+            //all elements are greater than 5<br>
+            const greaterFive = arr.every(num => num > 5);<br>
+            console.log(greaterFive); // false<br><br>
 
-    const people = [
-      'Bernhard, Sandra', 'Bethea, Erin', 'Becker, Carl', 'Bentsen, Lloyd', 'Beckett, Samuel', 'Blake, William', 'Berger, Ric', 'Beddoes, Mick', 'Beethoven, Ludwig',
-      'Belloc, Hilaire', 'Begin, Menachem', 'Bellow, Saul', 'Benchley, Robert', 'Blair, Robert', 'Benenson, Peter', 'Benjamin, Walter', 'Berlin, Irving',
-      'Benn, Tony', 'Benson, Leana', 'Bent, Silas', 'Berle, Milton', 'Berry, Halle', 'Biko, Steve', 'Beck, Glenn', 'Bergman, Ingmar', 'Black, Elk', 'Berio, Luciano',
-      'Berne, Eric', 'Berra, Yogi', 'Berry, Wendell', 'Bevan, Aneurin', 'Ben-Gurion, David', 'Bevel, Ken', 'Biden, Joseph', 'Bennington, Chester', 'Bierce, Ambrose',
-      'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
-    ];
-    
-    // Array.prototype.filter()
-    // 1. Filter the list of inventors for those who were born in the 1500's
-
-    // Array.prototype.map()
-    // 2. Give us an array of the inventors first and last names
-
-    // Array.prototype.sort()
-    // 3. Sort the inventors by birthdate, oldest to youngest
-
-    // Array.prototype.reduce()
-    // 4. How many years did all the inventors live all together?
-
-    // 5. Sort the inventors by years lived
-
-    // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
-    // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-
-
-    // 7. sort Exercise
-    // Sort the people alphabetically by last name
-
-    // 8. Reduce Exercise
-    // Sum up the instances of each of these
-    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
-
-  </script>
-</body>
+            //all elements are less than 9<br>
+            const lessNine = arr.every(num => num < 9);<br>
+            console.log(lessNine); // true<br>
+        </li><br>
+        <li>some() - checks if at least one element in the array that passes the condition, returning true or false as appropriate<br></li><br>
+        <li>includes() - checks if an array includes the element that passes the condition, returning true or false as appropriate<br></li><br>
+        <li>join() - returns a new string by concatenating all of the array’s elements separated by the specified separator<br></li><br>
+        <li>reduce() - applies a function against an accumulator and each element in the array to reduce it to a single value<br></li><br>
+        <li>find() - returns the value of the first element in an array that pass the test in a testing function<br></li><br>
+        <li>findIndex() - returns the index of the first element in an array that pass the test in a testing function<br></li><br>
+        <li>indexOf() - returns the index of the first occurrence of the specified element in the array, or -1 if it is not found<br></li><br>
+        <li>fill() - fills the elements in an array with a static value and returns the modified array<br></li><br>
+        <li>slice() - returns a new array with specified start to end elements<br></li><br>
+        <li>reverse() - reverses an array in place. Element at last index will be first and element at 0 index will be last<br></li><br>
+        <li>push() - adds one or more elements to the end of array and returns the new length of the array<br></li><br>
+        <li>pop() - removes the last element from the end of array and returns that element<br></li><br>
+        <li>shift() - removes the first element from an array and returns that element<br></li><br>
+        <li>unshift() - adds one or more elements to the beginning of an array and returns the new length of the array<br></li><br>
+      </ol>
+    </p>
+    <script src="script.js"></script>
+  </body>
 </html>
